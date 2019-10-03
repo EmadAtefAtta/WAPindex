@@ -1,0 +1,33 @@
+body {
+    background-color: darkturquoise;
+}
+h1 {
+    color:maroon;
+    font-family:"Courier New";
+
+}
+h2{
+    font-family: cursive;
+}
+p {
+    font-family: Georgia;
+  }
+a {
+    color: red;
+}
+ul{
+    color: white;
+}
+.desc{
+    background-color: whitesmoke;
+    color:rgb(26, 90, 155);
+    font-weight: bold;
+}
+.name{
+    font-size: 20px
+}
+
+img {
+    padding-left: 5Px;
+    padding-right: 5Px;
+}

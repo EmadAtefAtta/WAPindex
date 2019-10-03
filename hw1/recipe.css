@@ -1,0 +1,46 @@
+.bodyRaber{
+    width: 1024px;
+    margin: 0 auto;
+	background-image: url("images/silverware.jpg");
+    background-attachment: fixed;
+}
+h1{
+    color:#A4A400;
+    background-color:#F0F0F0;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 22pt;
+    font-weight: bold;
+}
+h2{
+    color:#A4A400;
+    background-color:#F0F0F0;
+    text-decoration: underline;
+    font-size: 18pt;
+    font-weight: normal;
+}
+a{
+    color: #A4A400;
+
+}
+abbr{
+    text-decoration: underline;
+}
+.desText{
+    color: #404040 ;
+    font-size: 11pt;
+    font-family: Georgia,Garamond,serif ;
+}
+blockquote{
+    font-style: italic;
+    background-color: #FFFFA8;
+}
+footer{
+    font-family: monospace;
+    text-align: right;
+    
+}
+.footer{
+    text-align: right;
+    
+}
