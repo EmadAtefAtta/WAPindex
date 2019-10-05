@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<!-- CSE 190 M Homework 4 (NerdLuv) -->
+	<!-- shared page top HTML -->
+
+	<head>
+		<title>NerdLuv</title>
+
+		<meta charset="utf-8" />
+
+		<!-- instructor-provided CSS and JavaScript links; do not modify -->
+		<link href="images/heart.gif" type="image/gif" rel="shortcut icon" />
+		<link href="nerdluv.css" type="text/css" rel="stylesheet" />
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+		<script src="provided.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<header>
+			<img src="images/nerdluv.png" alt="banner logo" /> <br />
+			where meek geeks meet
+        </header>
+        <div>
+            <form >
+                <fieldset>
+                    <legend>New User Signup:</legend>
+                    <div class="row">
+                            <div class="col-30">
+                              <label >Name:</label>
+                            </div>
+                            <div class="col-70">
+                                <input type="text" name="name" size="16" >
+                            </div>
+                    </div>
+                   
+                    <div class="row">
+                                <div class="col-30">
+                                  <label >Gender:</label>
+                                </div>
+                                <div class="col-70">
+                                        <label class="gender"> <input type="radio" name="gender" value="male"  /> Male </label>
+                                        <label class="gender"> <input type="radio" name="gender" value="female" checked /> Female </label>
+                                </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-30">
+                              <label >Age:</label>
+                            </div>
+                            <div class="col-70">
+                                    <input type="text" name="Age" size="6" maxlength="2" >
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="col-30">
+                              <label >Personality type:</label>
+                            </div>
+                            <div class="col-70">
+                                    <input type="text" name="pType" size="6" maxlength="4" >
+                                   (<a href="http://www.humanmetrics.com/cgi-win/JTypes2.asp">don't know your type?</a>)  
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="col-30">
+                              <label >Favorite OS:</label>
+                            </div>
+                            <div class="col-70">
+                                    <select name="favoriteOS">
+                                            <option selected>Windows</option>
+                                            <option>Mac OS X</option>
+                                            <option >Linux</option>
+                                    </select>  
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="col-30">
+                              <label >Seeking age:</label>
+                            </div>
+                            <div class="col-70">
+                                    <input type="text" name="fromAge" size="6" maxlength="2" placeholder="min" >
+                                 to <input type="text" name="toAge" size="6" maxlength="2" placeholder="max" >
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="col-30">
+                                <input type="submit" value="Sign Up">
+                            </div>
+                    </div>
+                </fieldset>
+
+            </form>
+        </div>
+    </body>
+</html>   

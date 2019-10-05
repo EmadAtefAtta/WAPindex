@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div>
+    <h1>Retrieve your grade</h1>
+
+    <form action="http://mumstudents.org/params.php">
+        Name:<br>
+      <input type="text" name="studentName"  >
+      <br><br>
+      Student ID:<br>
+      <input type="text" name="studentID">
+      <br><br>
+      Choose Assingment:<br>
+      <select name="assingment">
+        <option>assingment 1</option>
+        <option>assingment 2</option>
+        <option selected>assingment 3</option>
+        <option>assingment 4</option>
+      </select>
+      <br><br>
+      Select Your Entry:<br>
+     <label> <input type="radio" name="sEntry" value="fEntry" checked /> February Entry </label>
+     <label> <input type="radio" name="sEntry" value="mEntry" /> May Entry </label>
+     <label> <input type="radio" name="sEntry" value="aEntry" /> August Entry </label>
+     <br><br>
+     <label> <input type="checkbox" name="confirm" /> I am really looking up my own grade </label>
+
+      <br><br><br>
+      <input type="submit" value="Get Grade!">
+    </form> 
+
+     
+</div>
+
+</body>
+</html>
