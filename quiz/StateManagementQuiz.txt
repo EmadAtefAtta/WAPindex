@@ -1,0 +1,106 @@
+Answers for Servelt Quiz 2
+
+
+1-Can post requests be bookmarked? What are the problems?
+
+No, we can't bookmark the post request because clicking the bookmark will always fire GET request.
+Post request is fired only when submitting the HTML form. We can program to bookmark POST request but it is not done due to sensitive reason of data. Post request is not idempotent and does not gurantee the same result everytime we invoke it.
+When we bookmark a URL we're only bookmarking the URL, not the request body.
+E.g. if we fill in a form on webpage that is then passed to the webserver as a POST request, and we then bookmark the response page in our browser, the browser will make note of only the URL, but not the form body.
+
+------------------------------------------------------------------------------------------------------------------------
+
+2-What is the purpose of request dispatching?
+
+The purpose of request dispatcher is to forward a client's request to resource of include the resource in response back to the client. A resource can be another servlet, or and HEML file, or a JSP.
+forward (to another servlet or jsp in same website)
+RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+view.forward(request, response);
+redirect response.sendRedirect("http://www.cs.mum.edu"); //to another site
+response.sendRedirect("result.jsp"); //within same site
+
+----------------------------------------------------------------------------------------------------------------------
+
+3-What is the difference between redirect and request dispatch?
+
+Forward
+passes the request to another resource on the server request and response objects passed to destination servlet. Browser is completely unaware of servlet forward and hence the URL in browser address bar will remain unchanged
+Redirect
+server sends HTTP status code 3xx to client along with the redirect URL (usually 302 temporary redirect) client then sends a new request to the URL extra round trip address bar will change to new URL only http message sent, request and response objects cannot be sent
+
+------------------------------------------------------------------------------------------------------------------------
+
+4-What is an attribute ?
+
+Attributes are objects that are attached to various scopes and can be modified, retrieved or removed. Attributes can be read, created, updated and deleted by the web container as well as our application code. We have methods in the Servlet API to add, modify, retrieve and remove attributes. When an object is added to an attribute in any scope, it is called binding as the object is bound into a scoped attribute with a given name. Attribute has name value pair. Where value has an object and name is String. The attribute manipulation methods for request, session and application scopes are identical and differ only on the interfaces they are defined.
+They are:
+getAttribute(String)
+setAttribute(String, Object)
+removeAttribute(String)
+getAttributeNames()
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+5-What is the difference between attributes and parameters?
+
+The difference between attribute and parameters are:-
+Parameters are read only, attributes are read/write objects.
+Parameters are String objects, attributes can be objects of any type.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+6-What are dangers of using attributes?
+
+The dangers of using attributes are:-
+1.If any of the attribute manipulation functions are invoked in session scope when the session is invalid, IllegalStateException will be thrown.
+2.Null is returned if no attribute of the given name exist.
+3.If we call getAttributeNames() when no attributes are there, an empty enumeration will be returned. However, since some attributes will be always supplied by the web container during the application context, the enumeration returned by getAttributeNames() will never be empty in the application scope.
+4.There is no guarantee of the order of the attributes within the enumeration returned by the getAttributeNames() method.
+5.Not thread safe and is like nuclear power.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+7-What does it mean to say that http is stateless? Give an example of a stateful protocol?
+
+A stateless protocol does not require the server to retain information or status about each user for the duration of multiple requests 
+FTP and TCP are stateful protocols.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+8-Give 5 different methods for maintaining state information (count each attribute scope as one method).
+
+1.request scope: destroyed when servlet finishes processing request request.setAttribute("requestState", "bob");
+2.session scope: destroyed when user closes browser request.getSession().setAttribute("sessionState", "bob");
+3.application scope destroyed when the container stopped. this.getServletContext().setAttribute("applicationState", "bob");
+4.Cookies saved on browser, either temporary (deleted when the browser closes) or permanent Cookie c = new Cookie("cookiePermanentState", "bob"); c.setMaxAge(3600); response.addCookie(c);
+5.Hidden fields on a form input type='hidden' name='hiddenState' value='bob'
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+9-How long does a session last?
+
+Onclient side
+Browser discards all "temporary" cookies when it closes
+On server Side
+3 ways for container to remove sessions
+session timeout in the DD
+session.setMaxInactiveInterval(20*60); //seconds
+session.invalidate(); //immediate
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+10-What is a cookie, and how long does a cookie last?
+
+A cookie is a small piece of data sent by the server and stored in the browser. the browser whereas permanent cookies last till its max set age.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+11-What is the purpose of URL rewriting?
+
+URl rewriting is a way to support anonymous session tracking since using URL rewriting dynamically modifies the local URL to contain some extra information.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+12-Why does the request attribute report 'null' for the maintaining state demo?
+
+The request attribute reports 'null' for the maintaining state demo because local attribute requestState is not transferred to the post.
